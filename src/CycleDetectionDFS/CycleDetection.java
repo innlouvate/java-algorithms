@@ -18,7 +18,7 @@ public class CycleDetection {
         vertex.setBeingVistited(true);
         for (Vertex v : vertex.getNeighbourList()) {
             if (v.isBeingVistited()) {
-                System.out.print("Backward edge, so there is a cycle!");
+                System.out.print("Backward edge, so there is a cycle! ");
                 return;
             }
             if (!v.isVisited()) {

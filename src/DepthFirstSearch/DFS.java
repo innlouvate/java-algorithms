@@ -38,4 +38,21 @@ public class DFS {
 
     }
 
+    public void dfsRecursive(List<Vertex> vertexList) {
+        for (Vertex v : vertexList) {
+            if (!v.isVisited()) {
+                v.setVisited(true);
+                dfsRecursion(v);
+            }
+        }
+    }
+
+    private void dfsRecursion(Vertex vertex) {
+        System.out.print(vertex.getName()+"  ");
+        for (Vertex v : vertex.getNeighbourList()) {
+            v.setVisited(true);
+            dfsRecursion(v);
+        }
+    }
+
 }

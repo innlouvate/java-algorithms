@@ -11,7 +11,7 @@ public class App {
                 {1, 1, 0, 0, 1},
                 {1, 1, 3, 1, 1}};
 
-        MazeSolver mazeSolver = new MazeSolver(mazeMap, 1, 0);
+        MazeSolver mazeSolver = new MazeSolver(mazeMap, 6, 0);
         mazeSolver.findWayOut();
 
     }

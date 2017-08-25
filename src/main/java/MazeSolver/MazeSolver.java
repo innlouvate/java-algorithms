@@ -23,7 +23,7 @@ public class MazeSolver {
             dfs(startPositionCol, startPositionRow, output);
             System.out.print("No solution found, stuck here forever!");
         } catch (RuntimeException e) {
-            System.out.println("Solution found, you're free!");
+            System.out.print("Solution found, you're free!");
         }
     }
 

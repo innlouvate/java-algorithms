@@ -1,5 +1,8 @@
 package MazeSolver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MazeSolver {
 
     private int[][] mazeMap;
@@ -16,16 +19,19 @@ public class MazeSolver {
 
     public void findWayOut() {
         try {
-            dfs(startPositionCol, startPositionRow);
+            List output = new ArrayList();
+            dfs(startPositionCol, startPositionRow, output);
             System.out.print("No solution found, stuck here forever!");
         } catch (RuntimeException e) {
-            System.out.print("Solution found, you're free!");
+            System.out.println("Solution found, you're free!");
         }
     }
 
-    private void dfs(int colIndex, int rowIndex) {
+    private void dfs(int colIndex, int rowIndex, List output) {
 
         if ( mazeMap[rowIndex][colIndex] == 3) {
+            output.add(colIndex + ":" + rowIndex);
+            System.out.println(output);
             throw new RuntimeException();
         }
 
@@ -38,12 +44,13 @@ public class MazeSolver {
         } else if (mazeMap[rowIndex][colIndex] == 1) {
             return; //hit a wall
         } else {
+            output.add(colIndex + ":" + rowIndex);
             visited[rowIndex][colIndex] = true;
 
-            dfs(colIndex, rowIndex + 1); //go right
-            dfs(colIndex + 1, rowIndex); //go down
-            dfs(colIndex, rowIndex - 1); //go left
-            dfs(colIndex - 1, rowIndex); //go up
+            dfs(colIndex, rowIndex + 1, output); //go right
+            dfs(colIndex + 1, rowIndex, output); //go down
+            dfs(colIndex, rowIndex - 1, output); //go left
+            dfs(colIndex - 1, rowIndex, output); //go up
         }
     }
 

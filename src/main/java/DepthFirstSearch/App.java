@@ -26,8 +26,8 @@ public class App {
         list.add(vertex5);
 
         DFS dfs = new DFS();
-//        dfs.dfs(list);
-        dfs.dfsRecursive(list);
+        dfs.dfs(list);
+//        dfs.dfsRecursive(list);
     }
 
 }
